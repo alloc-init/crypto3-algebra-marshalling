@@ -225,7 +225,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
 
     auto read_iter = encoded_point.begin();
     curve_element_type test_val_read;
-    status = test_val_read.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(group_value_type::one() == test_val_read.value());
 
     auto etalon_p0 =
@@ -243,7 +243,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc0 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read0;
-    status = test_val_read0.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read0.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p0 == test_val_read0.value());
     auto etalon_p1 =
         group_affine_value_type(
@@ -260,7 +260,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc1 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read1;
-    status = test_val_read1.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read1.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p1 == test_val_read1.value());
     auto etalon_p2 =
         group_affine_value_type(
@@ -277,7 +277,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc2 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read2;
-    status = test_val_read2.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read2.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p2 == test_val_read2.value());
     auto etalon_p3 =
         group_affine_value_type(
@@ -294,7 +294,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc3 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read3;
-    status = test_val_read3.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read3.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p3 == test_val_read3.value());
     auto etalon_p4 =
         group_affine_value_type(
@@ -311,7 +311,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc4 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read4;
-    status = test_val_read4.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read4.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p4 == test_val_read4.value());
     auto etalon_p5 =
         group_affine_value_type(
@@ -328,7 +328,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc5 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read5;
-    status = test_val_read5.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read5.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p5 == test_val_read5.value());
     auto etalon_p6 =
         group_affine_value_type(
@@ -345,7 +345,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc6 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read6;
-    status = test_val_read6.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read6.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p6 == test_val_read6.value());
     auto etalon_p7 =
         group_affine_value_type(
@@ -362,7 +362,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc7 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read7;
-    status = test_val_read7.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read7.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p7 == test_val_read7.value());
     auto etalon_p8 =
         group_affine_value_type(
@@ -379,7 +379,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc8 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read8;
-    status = test_val_read8.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read8.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p8 == test_val_read8.value());
     auto etalon_p9 =
         group_affine_value_type(
@@ -396,7 +396,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc9 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read9;
-    status = test_val_read9.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read9.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p9 == test_val_read9.value());
     auto etalon_p10 =
         group_affine_value_type(
@@ -413,7 +413,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc10 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read10;
-    status = test_val_read10.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read10.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p10 == test_val_read10.value());
     auto etalon_p11 =
         group_affine_value_type(
@@ -430,7 +430,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc11 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read11;
-    status = test_val_read11.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read11.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p11 == test_val_read11.value());
     auto etalon_p12 =
         group_affine_value_type(
@@ -447,7 +447,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc12 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read12;
-    status = test_val_read12.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read12.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p12 == test_val_read12.value());
     auto etalon_p13 =
         group_affine_value_type(
@@ -464,7 +464,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc13 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read13;
-    status = test_val_read13.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read13.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p13 == test_val_read13.value());
     auto etalon_p14 =
         group_affine_value_type(
@@ -481,7 +481,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc14 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read14;
-    status = test_val_read14.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read14.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p14 == test_val_read14.value());
     auto etalon_p15 =
         group_affine_value_type(
@@ -498,7 +498,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc15 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read15;
-    status = test_val_read15.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read15.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p15 == test_val_read15.value());
     auto etalon_p16 =
         group_affine_value_type(
@@ -515,7 +515,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc16 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read16;
-    status = test_val_read16.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read16.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p16 == test_val_read16.value());
     auto etalon_p17 =
         group_affine_value_type(
@@ -532,7 +532,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc17 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read17;
-    status = test_val_read17.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read17.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p17 == test_val_read17.value());
     auto etalon_p18 =
         group_affine_value_type(
@@ -549,7 +549,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc18 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read18;
-    status = test_val_read18.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read18.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p18 == test_val_read18.value());
     auto etalon_p19 =
         group_affine_value_type(
@@ -566,7 +566,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc19 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read19;
-    status = test_val_read19.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read19.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p19 == test_val_read19.value());
     auto etalon_p20 =
         group_affine_value_type(
@@ -583,7 +583,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc20 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read20;
-    status = test_val_read20.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read20.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p20 == test_val_read20.value());
     auto etalon_p21 =
         group_affine_value_type(
@@ -600,7 +600,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc21 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read21;
-    status = test_val_read21.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read21.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p21 == test_val_read21.value());
     auto etalon_p22 =
         group_affine_value_type(
@@ -617,7 +617,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc22 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read22;
-    status = test_val_read22.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read22.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p22 == test_val_read22.value());
     auto etalon_p23 =
         group_affine_value_type(
@@ -634,7 +634,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc23 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read23;
-    status = test_val_read23.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read23.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p23 == test_val_read23.value());
     auto etalon_p24 =
         group_affine_value_type(
@@ -651,7 +651,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc24 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read24;
-    status = test_val_read24.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read24.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p24 == test_val_read24.value());
     auto etalon_p25 =
         group_affine_value_type(
@@ -668,7 +668,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc25 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read25;
-    status = test_val_read25.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read25.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p25 == test_val_read25.value());
     auto etalon_p26 =
         group_affine_value_type(
@@ -685,7 +685,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc26 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read26;
-    status = test_val_read26.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read26.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p26 == test_val_read26.value());
     auto etalon_p27 =
         group_affine_value_type(
@@ -702,7 +702,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc27 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read27;
-    status = test_val_read27.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read27.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p27 == test_val_read27.value());
     auto etalon_p28 =
         group_affine_value_type(
@@ -719,7 +719,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc28 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read28;
-    status = test_val_read28.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read28.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p28 == test_val_read28.value());
     auto etalon_p29 =
         group_affine_value_type(
@@ -736,7 +736,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc29 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read29;
-    status = test_val_read29.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read29.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p29 == test_val_read29.value());
     auto etalon_p30 =
         group_affine_value_type(
@@ -753,7 +753,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc30 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read30;
-    status = test_val_read30.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read30.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p30 == test_val_read30.value());
     auto etalon_p31 =
         group_affine_value_type(
@@ -770,7 +770,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc31 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read31;
-    status = test_val_read31.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read31.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p31 == test_val_read31.value());
     auto etalon_p32 =
         group_affine_value_type(
@@ -787,7 +787,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc32 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read32;
-    status = test_val_read32.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read32.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p32 == test_val_read32.value());
     auto etalon_p33 =
         group_affine_value_type(
@@ -804,7 +804,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc33 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read33;
-    status = test_val_read33.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read33.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p33 == test_val_read33.value());
     auto etalon_p34 =
         group_affine_value_type(
@@ -821,7 +821,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc34 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read34;
-    status = test_val_read34.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read34.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p34 == test_val_read34.value());
     auto etalon_p35 =
         group_affine_value_type(
@@ -838,7 +838,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc35 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read35;
-    status = test_val_read35.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read35.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p35 == test_val_read35.value());
     auto etalon_p36 =
         group_affine_value_type(
@@ -855,7 +855,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc36 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read36;
-    status = test_val_read36.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read36.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p36 == test_val_read36.value());
     auto etalon_p37 =
         group_affine_value_type(
@@ -872,7 +872,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc37 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read37;
-    status = test_val_read37.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read37.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p37 == test_val_read37.value());
     auto etalon_p38 =
         group_affine_value_type(
@@ -889,7 +889,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc38 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read38;
-    status = test_val_read38.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read38.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p38 == test_val_read38.value());
     auto etalon_p39 =
         group_affine_value_type(
@@ -906,7 +906,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc39 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read39;
-    status = test_val_read39.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read39.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p39 == test_val_read39.value());
     auto etalon_p40 =
         group_affine_value_type(
@@ -923,7 +923,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc40 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read40;
-    status = test_val_read40.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read40.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p40 == test_val_read40.value());
     auto etalon_p41 =
         group_affine_value_type(
@@ -940,7 +940,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc41 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read41;
-    status = test_val_read41.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read41.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p41 == test_val_read41.value());
     auto etalon_p42 =
         group_affine_value_type(
@@ -957,7 +957,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc42 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read42;
-    status = test_val_read42.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read42.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p42 == test_val_read42.value());
     auto etalon_p43 =
         group_affine_value_type(
@@ -974,7 +974,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc43 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read43;
-    status = test_val_read43.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read43.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p43 == test_val_read43.value());
     auto etalon_p44 =
         group_affine_value_type(
@@ -991,7 +991,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc44 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read44;
-    status = test_val_read44.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read44.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p44 == test_val_read44.value());
     auto etalon_p45 =
         group_affine_value_type(
@@ -1008,7 +1008,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc45 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read45;
-    status = test_val_read45.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read45.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p45 == test_val_read45.value());
     auto etalon_p46 =
         group_affine_value_type(
@@ -1025,7 +1025,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc46 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read46;
-    status = test_val_read46.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read46.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p46 == test_val_read46.value());
     auto etalon_p47 =
         group_affine_value_type(
@@ -1042,7 +1042,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc47 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read47;
-    status = test_val_read47.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read47.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p47 == test_val_read47.value());
     auto etalon_p48 =
         group_affine_value_type(
@@ -1059,7 +1059,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc48 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read48;
-    status = test_val_read48.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read48.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p48 == test_val_read48.value());
     auto etalon_p49 =
         group_affine_value_type(
@@ -1076,7 +1076,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc49 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read49;
-    status = test_val_read49.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read49.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p49 == test_val_read49.value());
     auto etalon_p50 =
         group_affine_value_type(
@@ -1093,7 +1093,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc50 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read50;
-    status = test_val_read50.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read50.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p50 == test_val_read50.value());
     auto etalon_p51 =
         group_affine_value_type(
@@ -1110,7 +1110,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc51 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read51;
-    status = test_val_read51.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read51.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p51 == test_val_read51.value());
     auto etalon_p52 =
         group_affine_value_type(
@@ -1127,7 +1127,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc52 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read52;
-    status = test_val_read52.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read52.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p52 == test_val_read52.value());
     auto etalon_p53 =
         group_affine_value_type(
@@ -1144,7 +1144,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc53 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read53;
-    status = test_val_read53.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read53.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p53 == test_val_read53.value());
     auto etalon_p54 =
         group_affine_value_type(
@@ -1161,7 +1161,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc54 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read54;
-    status = test_val_read54.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read54.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p54 == test_val_read54.value());
     auto etalon_p55 =
         group_affine_value_type(
@@ -1178,7 +1178,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc55 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read55;
-    status = test_val_read55.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read55.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p55 == test_val_read55.value());
     auto etalon_p56 =
         group_affine_value_type(
@@ -1195,7 +1195,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc56 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read56;
-    status = test_val_read56.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read56.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p56 == test_val_read56.value());
     auto etalon_p57 =
         group_affine_value_type(
@@ -1212,7 +1212,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc57 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read57;
-    status = test_val_read57.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read57.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p57 == test_val_read57.value());
     auto etalon_p58 =
         group_affine_value_type(
@@ -1229,7 +1229,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc58 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read58;
-    status = test_val_read58.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read58.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p58 == test_val_read58.value());
     auto etalon_p59 =
         group_affine_value_type(
@@ -1246,7 +1246,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc59 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read59;
-    status = test_val_read59.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read59.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p59 == test_val_read59.value());
     auto etalon_p60 =
         group_affine_value_type(
@@ -1263,7 +1263,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc60 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read60;
-    status = test_val_read60.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read60.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p60 == test_val_read60.value());
     auto etalon_p61 =
         group_affine_value_type(
@@ -1280,7 +1280,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc61 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read61;
-    status = test_val_read61.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read61.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p61 == test_val_read61.value());
     auto etalon_p62 =
         group_affine_value_type(
@@ -1297,7 +1297,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc62 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read62;
-    status = test_val_read62.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read62.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p62 == test_val_read62.value());
     auto etalon_p63 =
         group_affine_value_type(
@@ -1314,7 +1314,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc63 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read63;
-    status = test_val_read63.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read63.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p63 == test_val_read63.value());
     auto etalon_p64 =
         group_affine_value_type(
@@ -1331,7 +1331,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc64 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read64;
-    status = test_val_read64.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read64.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p64 == test_val_read64.value());
     auto etalon_p65 =
         group_affine_value_type(
@@ -1348,7 +1348,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc65 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read65;
-    status = test_val_read65.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read65.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p65 == test_val_read65.value());
     auto etalon_p66 =
         group_affine_value_type(
@@ -1365,7 +1365,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc66 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read66;
-    status = test_val_read66.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read66.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p66 == test_val_read66.value());
     auto etalon_p67 =
         group_affine_value_type(
@@ -1382,7 +1382,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc67 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read67;
-    status = test_val_read67.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read67.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p67 == test_val_read67.value());
     auto etalon_p68 =
         group_affine_value_type(
@@ -1399,7 +1399,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc68 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read68;
-    status = test_val_read68.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read68.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p68 == test_val_read68.value());
     auto etalon_p69 =
         group_affine_value_type(
@@ -1416,7 +1416,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc69 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read69;
-    status = test_val_read69.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read69.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p69 == test_val_read69.value());
     auto etalon_p70 =
         group_affine_value_type(
@@ -1433,7 +1433,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc70 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read70;
-    status = test_val_read70.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read70.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p70 == test_val_read70.value());
     auto etalon_p71 =
         group_affine_value_type(
@@ -1450,7 +1450,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc71 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read71;
-    status = test_val_read71.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read71.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p71 == test_val_read71.value());
     auto etalon_p72 =
         group_affine_value_type(
@@ -1467,7 +1467,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc72 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read72;
-    status = test_val_read72.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read72.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p72 == test_val_read72.value());
     auto etalon_p73 =
         group_affine_value_type(
@@ -1484,7 +1484,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc73 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read73;
-    status = test_val_read73.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read73.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p73 == test_val_read73.value());
     auto etalon_p74 =
         group_affine_value_type(
@@ -1501,7 +1501,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc74 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read74;
-    status = test_val_read74.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read74.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p74 == test_val_read74.value());
     auto etalon_p75 =
         group_affine_value_type(
@@ -1518,7 +1518,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc75 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read75;
-    status = test_val_read75.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read75.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p75 == test_val_read75.value());
     auto etalon_p76 =
         group_affine_value_type(
@@ -1535,7 +1535,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc76 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read76;
-    status = test_val_read76.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read76.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p76 == test_val_read76.value());
     auto etalon_p77 =
         group_affine_value_type(
@@ -1552,7 +1552,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc77 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read77;
-    status = test_val_read77.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read77.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p77 == test_val_read77.value());
     auto etalon_p78 =
         group_affine_value_type(
@@ -1569,7 +1569,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc78 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read78;
-    status = test_val_read78.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read78.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p78 == test_val_read78.value());
     auto etalon_p79 =
         group_affine_value_type(
@@ -1586,7 +1586,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc79 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read79;
-    status = test_val_read79.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read79.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p79 == test_val_read79.value());
     auto etalon_p80 =
         group_affine_value_type(
@@ -1603,7 +1603,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc80 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read80;
-    status = test_val_read80.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read80.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p80 == test_val_read80.value());
     auto etalon_p81 =
         group_affine_value_type(
@@ -1620,7 +1620,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc81 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read81;
-    status = test_val_read81.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read81.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p81 == test_val_read81.value());
     auto etalon_p82 =
         group_affine_value_type(
@@ -1637,7 +1637,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc82 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read82;
-    status = test_val_read82.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read82.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p82 == test_val_read82.value());
     auto etalon_p83 =
         group_affine_value_type(
@@ -1654,7 +1654,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc83 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read83;
-    status = test_val_read83.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read83.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p83 == test_val_read83.value());
     auto etalon_p84 =
         group_affine_value_type(
@@ -1671,7 +1671,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc84 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read84;
-    status = test_val_read84.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read84.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p84 == test_val_read84.value());
     auto etalon_p85 =
         group_affine_value_type(
@@ -1688,7 +1688,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc85 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read85;
-    status = test_val_read85.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read85.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p85 == test_val_read85.value());
     auto etalon_p86 =
         group_affine_value_type(
@@ -1705,7 +1705,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc86 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read86;
-    status = test_val_read86.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read86.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p86 == test_val_read86.value());
     auto etalon_p87 =
         group_affine_value_type(
@@ -1722,7 +1722,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc87 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read87;
-    status = test_val_read87.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read87.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p87 == test_val_read87.value());
     auto etalon_p88 =
         group_affine_value_type(
@@ -1739,7 +1739,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc88 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read88;
-    status = test_val_read88.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read88.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p88 == test_val_read88.value());
     auto etalon_p89 =
         group_affine_value_type(
@@ -1756,7 +1756,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc89 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read89;
-    status = test_val_read89.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read89.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p89 == test_val_read89.value());
     auto etalon_p90 =
         group_affine_value_type(
@@ -1773,7 +1773,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc90 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read90;
-    status = test_val_read90.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read90.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p90 == test_val_read90.value());
     auto etalon_p91 =
         group_affine_value_type(
@@ -1790,7 +1790,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc91 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read91;
-    status = test_val_read91.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read91.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p91 == test_val_read91.value());
     auto etalon_p92 =
         group_affine_value_type(
@@ -1807,7 +1807,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc92 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read92;
-    status = test_val_read92.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read92.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p92 == test_val_read92.value());
     auto etalon_p93 =
         group_affine_value_type(
@@ -1824,7 +1824,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc93 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read93;
-    status = test_val_read93.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read93.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p93 == test_val_read93.value());
     auto etalon_p94 =
         group_affine_value_type(
@@ -1841,7 +1841,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc94 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read94;
-    status = test_val_read94.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read94.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p94 == test_val_read94.value());
     auto etalon_p95 =
         group_affine_value_type(
@@ -1858,7 +1858,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc95 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read95;
-    status = test_val_read95.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read95.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p95 == test_val_read95.value());
     auto etalon_p96 =
         group_affine_value_type(
@@ -1875,7 +1875,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc96 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read96;
-    status = test_val_read96.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read96.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p96 == test_val_read96.value());
     auto etalon_p97 =
         group_affine_value_type(
@@ -1892,7 +1892,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc97 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read97;
-    status = test_val_read97.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read97.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p97 == test_val_read97.value());
     auto etalon_p98 =
         group_affine_value_type(
@@ -1909,7 +1909,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc98 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read98;
-    status = test_val_read98.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read98.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p98 == test_val_read98.value());
     auto etalon_p99 =
         group_affine_value_type(
@@ -1926,7 +1926,7 @@ BOOST_AUTO_TEST_CASE(curve_element_curve25519_g1) {
     BOOST_CHECK(etalon_p_enc99 == encoded_point);
     read_iter = encoded_point.begin();
     curve_element_type test_val_read99;
-    status = test_val_read99.read(read_iter, curve_element_type::bit_length());
+    status = test_val_read99.read(read_iter, curve_element_type::template length<1>());
     BOOST_CHECK(etalon_p99 == test_val_read99.value());
 }
 

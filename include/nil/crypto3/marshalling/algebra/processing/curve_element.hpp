@@ -54,28 +54,20 @@ namespace nil {
                 struct curve_element_marshalling_params {
                     using group_type = Group;
 
+                    template<std::size_t WordBits>
                     static constexpr std::size_t length() {
-                        return bit_length() / 8 + ((bit_length() % 8) != 0);
+                        return group_type::field_type::value_bits / WordBits + 
+                            ((group_type::field_type::value_bits % WordBits) != 0);
                     }
 
+                    template<std::size_t WordBits>
                     static constexpr std::size_t min_length() {
-                        return length();
+                        return length<WordBits>();
                     }
 
+                    template<std::size_t WordBits>
                     static constexpr std::size_t max_length() {
-                        return length();
-                    }
-
-                    static constexpr std::size_t bit_length() {
-                        return group_type::field_type::value_bits;
-                    }
-
-                    static constexpr std::size_t min_bit_length() {
-                        return bit_length();
-                    }
-
-                    static constexpr std::size_t max_bit_length() {
-                        return bit_length();
+                        return length<WordBits>();
                     }
                 };
 
@@ -113,7 +105,7 @@ namespace nil {
                         chunk_type m_unit = detail::evaluate_m_unit<chunk_type>(point_affine, true);
                         if (!(I_bit & m_unit)) {
                             // We assume here, that write_data doesn't change the iter
-                            write_data<params_type::bit_length(), endianness>(
+                            write_data<params_type::template length<1>(), endianness>(
                                 static_cast<typename group_value_type::field_type::integral_type>(point_affine.X.data),
                                 iter);
                         }
@@ -141,7 +133,7 @@ namespace nil {
                         using chunk_type = typename TIter::value_type;
 
                         constexpr static const std::size_t sizeof_field_element =
-                            params_type::bit_length() / (group_value_type::field_type::arity);
+                            params_type::template length<1>() / (group_value_type::field_type::arity);
                         constexpr static const std::size_t units_bits = 8;
                         constexpr static const std::size_t chunk_bits = sizeof(typename TIter::value_type) * units_bits;
                         constexpr static const std::size_t sizeof_field_element_chunks_count =
@@ -199,7 +191,7 @@ namespace nil {
                         // TODO: somehow add size check of container pointed by iter
                         constexpr std::size_t encoded_size = 32;
                         static_assert(encoded_size ==
-                                          (params_type::bit_length() / 8 + (params_type::bit_length() % 8 ? 1 : 0)),
+                                          (params_type::template length<1>() / 8 + (params_type::template length<1>() % 8 ? 1 : 0)),
                                       "wrong size");
                         using encoded_value_type = std::array<std::uint8_t, encoded_size>;
 
@@ -241,7 +233,7 @@ namespace nil {
                         !std::is_same<bool, typename std::iterator_traits<TIter>::value_type>::value,
                         nil::marshalling::status_type>::type
                         process(const group_value_type &point, TIter &iter) {
-                        write_data<params_type::bit_length(), endianness>(
+                        write_data<params_type::template length<1>(), endianness>(
                             static_cast<typename group_value_type::field_type::integral_type>(point.to_affine().X.data),
                             iter);
 
@@ -256,7 +248,7 @@ namespace nil {
                         process(const group_value_type &point, TIter &iter) {
                         auto X_affine =
                             static_cast<typename group_value_type::field_type::integral_type>(point.to_affine().X.data);
-                        for (std::size_t i = 0; i < params_type::bit_length(); ++i) {
+                        for (std::size_t i = 0; i < params_type::template length<1>(); ++i) {
                             *iter++ = bit_test(X_affine, 0);
                             X_affine >>= 1;
                         }
@@ -286,7 +278,7 @@ namespace nil {
                         BOOST_ASSERT(m_unit != 0x20 && m_unit != 0x60 && m_unit != 0xE0);
 
                         constexpr static const std::size_t sizeof_field_element =
-                            params_type::bit_length() / (group_value_type::field_type::arity);
+                            params_type::template length<1>() / (group_value_type::field_type::arity);
                         constexpr static const std::size_t units_bits = 8;
                         constexpr static const std::size_t chunk_bits = sizeof(chunk_type) * units_bits;
                         constexpr static const std::size_t sizeof_field_element_chunks_count =
@@ -347,7 +339,7 @@ namespace nil {
                         BOOST_ASSERT(m_unit != 0x20 && m_unit != 0x60 && m_unit != 0xE0);
 
                         constexpr static const std::size_t sizeof_field_element =
-                            params_type::bit_length() / (group_value_type::field_type::arity);
+                            params_type::template length<1>() / (group_value_type::field_type::arity);
                         constexpr static const std::size_t units_bits = 8;
                         constexpr static const std::size_t chunk_bits = sizeof(chunk_type) * units_bits;
                         constexpr static const std::size_t sizeof_field_element_chunks_count =
@@ -420,11 +412,11 @@ namespace nil {
                                                                           form>::value_type;
                         constexpr std::size_t encoded_size = 32;
                         static_assert(encoded_size ==
-                                          (params_type::bit_length() / 8 + (params_type::bit_length() % 8 ? 1 : 0)),
+                                          (params_type::template length<1>() / 8 + (params_type::template length<1>() % 8 ? 1 : 0)),
                                       "wrong size");
 
                         base_integral_type y =
-                            read_data<params_type::bit_length(), base_integral_type, endianness>(iter);
+                            read_data<params_type::template length<1>(), base_integral_type, endianness>(iter);
                         bool sign = *(iter + encoded_size - 1) & (1 << 7);
                         group_affine_value_type decoded_point_affine =
                             detail::recover_x<group_affine_value_type>(y, sign);
@@ -463,10 +455,10 @@ namespace nil {
                         using integral_type = typename field_type::integral_type;
 
                         const std::size_t chunk_number =
-                            params_type::bit_length() / 8 + (params_type::bit_length() % 8 != 0);
+                            params_type::template length<1>() / 8 + (params_type::template length<1>() % 8 != 0);
                         assert(chunk_number == 32);
 
-                        integral_type int_v = read_data<params_type::bit_length(), integral_type, endianness>(iter);
+                        integral_type int_v = read_data<params_type::template length<1>(), integral_type, endianness>(iter);
                         if (int_v >= group_value_type::field_type::modulus) {
                             return nil::marshalling::status_type::invalid_msg_data;
                         }

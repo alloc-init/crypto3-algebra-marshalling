@@ -83,7 +83,7 @@ void test_curve_element_non_fixed_size_container(std::vector<T> val_container) {
     //         nil::marshalling::types::integral<nil::marshalling::field_type<Endianness>, std::size_t>>>;
 
     // std::size_t unitblob_size =
-    //     curve_element_type::bit_length() / units_bits + ((curve_element_type::bit_length() % units_bits) ? 1 : 0);
+    //     curve_element_type::template length<1>() / units_bits + ((curve_element_type::template length<1>() % units_bits) ? 1 : 0);
     // std::vector<unit_type> cv;
     // cv.resize(unitblob_size * TSize + sizeof(std::size_t), 0x00);
 

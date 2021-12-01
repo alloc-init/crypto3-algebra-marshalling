@@ -78,24 +78,19 @@ namespace nil {
                             return value_;
                         }
 
+                        template<std::size_t WordBits=8>
                         static constexpr std::size_t length() {
-                            return params_type::length();
+                            return params_type::template length<WordBits>();
                         }
 
+                        template<std::size_t WordBits=8>
                         static constexpr std::size_t min_length() {
-                            return params_type::min_length();
+                            return params_type::template min_length<WordBits>();
                         }
 
+                        template<std::size_t WordBits=8>
                         static constexpr std::size_t max_length() {
-                            return params_type::max_length();
-                        }
-
-                        static constexpr std::size_t bit_length() {
-                            return params_type::bit_length();
-                        }
-
-                        static constexpr std::size_t max_bit_length() {
-                            return params_type::max_bit_length();
+                            return params_type::template max_length<WordBits>();
                         }
 
                         static constexpr serialized_type to_serialized(value_type val) {
