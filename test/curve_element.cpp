@@ -46,10 +46,56 @@
 #include <nil/crypto3/marshalling/algebra/types/curve_element.hpp>
 
 template<typename TIter>
-void print_byteblob(TIter iter_begin, TIter iter_end) {
+void print_byteblob(std::ostream &os, TIter iter_begin, TIter iter_end) {
+    os << std::hex;
     for (TIter it = iter_begin; it != iter_end; it++) {
-        std::cout << std::hex << int(*it) << std::endl;
+        os << std::setfill('0') << std::setw(2) << std::right << int(*it);
     }
+    os << std::dec << std::endl;
+}
+template<typename FieldParams>
+void print_field_element(std::ostream &os, const typename nil::crypto3::algebra::fields::detail::element_fp<FieldParams> &e) {
+    std::cout << e.data << std::endl;
+}
+template<typename FieldParams>
+void print_field_element(std::ostream &os, const typename nil::crypto3::algebra::fields::detail::element_fp2<FieldParams> &e) {
+    std::cout << e.data[0].data << ", " << e.data[1].data << std::endl;
+}
+
+template<typename FieldParams>
+void print_field_element(std::ostream &os, const typename nil::crypto3::algebra::fields::detail::element_fp3<FieldParams> &e) {
+    std::cout << e.data[0].data << ", " << e.data[1].data << ", " << e.data[2].data << std::endl;
+}
+
+template<typename FieldParams>
+void print_field_element(std::ostream &os, const nil::crypto3::algebra::fields::detail::element_fp12_2over3over2<FieldParams> &e) {
+    os << "[[[" << e.data[0].data[0].data[0].data << "," << e.data[0].data[0].data[1].data << "],["
+       << e.data[0].data[1].data[0].data << "," << e.data[0].data[1].data[1].data << "],["
+       << e.data[0].data[2].data[0].data << "," << e.data[0].data[2].data[1].data << "]],"
+       << "[[" << e.data[1].data[0].data[0].data << "," << e.data[1].data[0].data[1].data << "],["
+       << e.data[1].data[1].data[0].data << "," << e.data[1].data[1].data[1].data << "],["
+       << e.data[1].data[2].data[0].data << "," << e.data[1].data[2].data[1].data << "]]]" << std::endl;
+}
+
+template<typename CurveParams, typename Form>
+void print_curve_point(std::ostream &os,
+                       const nil::crypto3::algebra::curves::detail::curve_element<CurveParams, Form, nil::crypto3::algebra::curves::coordinates::affine> &p) {
+    os << "( X: [";
+    print_field_element(os, p.X);
+    os << "], Y: [";
+    print_field_element(os, p.Y);
+    os << "] )" << std::endl;
+}
+template<typename CurveParams, typename Form>
+void print_curve_point(std::ostream &os,
+                       const nil::crypto3::algebra::curves::detail::curve_element<CurveParams, Form, nil::crypto3::algebra::curves::coordinates::jacobian_with_a4_0> &p) {
+    os << "( X: [";
+    print_field_element(os, p.X);
+    os << "], Y: [";
+    print_field_element(os, p.Y);
+    os << "], Z: [";
+    print_field_element(os, p.Z);
+    os << "] )" << std::endl;
 }
 
 template<typename T>
@@ -66,7 +112,11 @@ void test_curve_element_big_endian(T val) {
     static_assert(nil::marshalling::is_compatible<T>::value);
 
     nil::marshalling::status_type status;
+    val = T::one();
+    print_curve_point(std::cout, val);
+    print_curve_point(std::cout, val.to_affine());
     std::vector<unit_type> cv = nil::marshalling::pack<Endianness>(val, status);
+    print_byteblob(std::cout, std::cbegin(cv), std::cend(cv));
 
     BOOST_CHECK(status == nil::marshalling::status_type::success);
 
@@ -78,9 +128,13 @@ void test_curve_element_big_endian(T val) {
 
 template<typename CurveGroup>
 void test_curve_element() {
+    typename CurveGroup::value_type val = CurveGroup::value_type::one();
+    print_curve_point(std::cout, val);
+    print_curve_point(std::cout, val.to_affine());
+
     std::cout << std::hex;
     std::cerr << std::hex;
-    for (unsigned i = 0; i < 128; ++i) {
+    for (unsigned i = 0; i < 1; ++i) {
         if (!(i % 16) && i) {
             std::cout << std::dec << i << " tested" << std::endl;
         }
@@ -99,6 +153,19 @@ BOOST_AUTO_TEST_CASE(curve_element_bls12_381_g1) {
 }
 
 BOOST_AUTO_TEST_CASE(curve_element_bls12_381_g2) {
+    using field_type = nil::crypto3::algebra::fields::bls12_fq<381>;
+    typename field_type::value_type a = typename field_type::integral_type("352701069587466618187139116011060144890029952792775240219908644239793785735715026873347600343865175952761926303160");
+    std::cout << "a:" << std::endl;
+    print_field_element(std::cout, a);
+    auto minus_a = -a;
+    std::cout << "minus_a:" << std::endl;
+    print_field_element(std::cout, minus_a);
+    auto b = field_type::value_type::zero();
+    std::cout << "b:" << std::endl;
+    print_field_element(std::cout, b);
+    auto c = (-a) - b;
+    std::cout << "-a - b:" << std::endl;
+    print_field_element(std::cout, c);
     std::cout << "BLS12-381 g2 group test started" << std::endl;
     test_curve_element<nil::crypto3::algebra::curves::bls12<381>::g2_type<>>();
     std::cout << "BLS12-381 g2 group test finished" << std::endl;
