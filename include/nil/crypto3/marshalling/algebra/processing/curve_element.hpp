@@ -1239,7 +1239,7 @@ namespace nil {
                         if (denominator.is_zero()) {
                             return nil::marshalling::status_type::invalid_msg_data;
                         }
-                        field_type::value_type fraction = (field_type::value_type::one() - vv) / denominator;
+                        field_type::value_type fraction = (field_type::value_type::one() - vv) * denominator.inversed();
 
                         // TODO: change logic of sqrt error handling
                         field_type::value_type u;
