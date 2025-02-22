@@ -19,8 +19,8 @@ library in a project it is required to:
 
 * [Multiprecision](https://github.com/alloc-init/crypto3-multiprecision.git)
 * [Algebra](https://github.com/alloc-init/crypto3-algebra.git)
-* [=nil;Marshalling](https://github.com/alloc-init/marshalling)
-* [=nil;Crypto3 Multiprecision Marshalling](https://github.com/alloc-init/crypto3-multiprecision-marshalling)
+* [Marshalling](https://github.com/alloc-init/marshalling)
+* [Crypto3 Multiprecision Marshalling](https://github.com/alloc-init/crypto3-multiprecision-marshalling)
 
 ### External
 
